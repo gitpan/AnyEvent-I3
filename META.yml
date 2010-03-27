@@ -1,14 +1,13 @@
 ---
 abstract: 'communicate with the i3 window manager'
 author:
-  - 'Michael Stapelberg, C<< <michael at stapelberg.de> >>'
   - 'Michael Stapelberg'
 build_requires:
   ExtUtils::MakeMaker: 6.42
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.95'
+generated_by: 'Module::Install version 0.94'
 license: gpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,4 +24,4 @@ requires:
   JSON::XS: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: 0.03
+version: 0.04
