@@ -15,11 +15,11 @@ AnyEvent::I3 - communicate with the i3 window manager
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =head1 SYNOPSIS
 
@@ -96,7 +96,16 @@ sub new {
 
     $path ||= '~/.i3/ipc.sock';
 
-    bless { path => glob($path) } => $class;
+    # Check if we need to resolve ~
+    if ($path =~ /~/) {
+        # We use getpwuid() instead of $ENV{HOME} because the latter is tainted
+        # and thus produces warnings when running tests with perl -T
+        my $home = (getpwuid($<))[7];
+        die "Could not get home directory" unless $home and -d $home;
+        $path =~ s/~/$home/g;
+    }
+
+    bless { path => $path } => $class;
 }
 
 =head2 $i3->connect
