@@ -25,4 +25,4 @@ requires:
   JSON::XS: 0
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: 0.08
+version: 0.09
