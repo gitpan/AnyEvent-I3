@@ -15,11 +15,11 @@ AnyEvent::I3 - communicate with the i3 window manager
 
 =cut
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =head1 SYNOPSIS
 
@@ -114,6 +114,8 @@ sub new {
         if ($paths =~ /^(.*)$/) {
             $ENV{PATH} = $1;
         }
+        # Otherwise the qx() operator wont work:
+        delete @ENV{'IFS', 'CDPATH', 'ENV', 'BASH_ENV'};
         chomp($path = qx(i3 --get-socketpath));
         # Circumventing taint mode again: the socket can be anywhere on the
         # system and that’s okay.
