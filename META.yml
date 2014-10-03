@@ -9,8 +9,8 @@ configure_requires:
   ExtUtils::MakeMaker: 6.36
 distribution_type: module
 dynamic_config: 1
-generated_by: 'Module::Install version 1.06'
-license: gpl
+generated_by: 'Module::Install version 1.10'
+license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -24,6 +24,4 @@ requires:
   AnyEvent::Handle: 0
   AnyEvent::Socket: 0
   JSON::XS: 0
-resources:
-  license: http://opensource.org/licenses/gpl-license.php
-version: 0.15
+version: '0.16'
